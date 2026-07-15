@@ -1,3 +1,9 @@
+
+
+https://github.com/user-attachments/assets/c2c32f76-7a0b-46ad-8079-555e8ec7fc11
+
+
+
 <div align="center">
 
 # HOPE
@@ -12,7 +18,8 @@ Uma assistente virtual criada em Python para conversar em português, responder 
 
 <br><br>
 
-[▶️ Assistir à demonstração da HOPE](./assets/demonstracao.mp4)
+[▶️ Assistir à demonstração da HOPE]<img width="1237" height="325" alt="image" src="https://github.com/user-attachments/assets/38676adc-9906-4cea-9cc4-5d68f45f3d7a" />
+
 
 </div>
 
