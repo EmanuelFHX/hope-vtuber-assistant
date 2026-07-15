@@ -29,6 +29,8 @@ Em vez de apenas gerar respostas em texto, ela combina inteligência artificial 
 
 A assistente é capaz de ouvir o usuário, interpretar a mensagem, formular uma resposta com personalidade própria, falar em voz alta e reagir visualmente durante a conversa.
 
+## OBS: A voz usada na demonstração não é a versão final dela, é uma versão neural da EDGE VOICE = Francisca com alguns ajustes, pode ser utilizado MurfAI e ElevenLabs para melhores vozes, esse é um protótipo (:
+
 ## Como a HOPE funciona
 
 O usuário pode interagir com a assistente por texto ou pelo microfone.
