@@ -38,9 +38,7 @@ O usuário pode interagir com a assistente por texto ou pelo microfone.
 A mensagem é processada junto ao histórico recente da conversa e ao prompt responsável por definir a personalidade da personagem. Em seguida, um modelo de linguagem executado localmente pelo **Ollama** gera a resposta.
 
 O texto produzido é transformado em áudio por um sistema de síntese de voz. Ao mesmo tempo, a HOPE identifica o contexto emocional da resposta e ativa expressões configuradas no VTube Studio.
-
-<div align="center">
-          
+        
 ```text
 Usuário fala ou digita
           ↓
@@ -56,7 +54,6 @@ Síntese de voz
           ↓
 Áudio, lip sync e expressões no VTube Studio
 ```
-<div align="center">
           
 ## Principais recursos
 
