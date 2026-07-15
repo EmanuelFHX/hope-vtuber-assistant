@@ -1,3 +1,4 @@
+<div align="center">
 # HOPE
 
 ### Assistente de IA com personalidade de VTuber
@@ -12,7 +13,6 @@ Uma assistente virtual criada em Python para conversar em português, responder 
 
 [▶️ Assistir à demonstração da HOPE]
 https://github.com/user-attachments/assets/c2c32f76-7a0b-46ad-8079-555e8ec7fc11
-<div align="center">
 
 
 </div>
