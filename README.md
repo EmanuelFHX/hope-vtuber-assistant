@@ -152,6 +152,6 @@ Entre as possibilidades futuras estão:
 
 <div align="center">
 
-Desenvolvido por **Emanuel FHX**
+Desenvolvido por **Emanuel Penna**
 
 </div>
