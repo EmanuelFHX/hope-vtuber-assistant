@@ -1,10 +1,10 @@
 <div align="center">
-          
+
 # HOPE
 
 ### Assistente de IA com personalidade de VTuber
 
-Uma assistente virtual criada em Python para conversar em português, responder por voz e interagir em tempo real com um avatar no VTube Studio.
+Uma assistente virtual desenvolvida em Python capaz de conversar naturalmente em português, responder por voz, pesquisar na internet e interagir em tempo real com um avatar no VTube Studio.
 
 <br>
 
@@ -12,141 +12,328 @@ Uma assistente virtual criada em Python para conversar em português, responder 
 
 <br><br>
 
-[▶️ Assistir à demonstração da HOPE]
-
-https://github.com/user-attachments/assets/c2c32f76-7a0b-46ad-8079-555e8ec7fc11
-<div align="center">
+[▶️ Assistir à demonstração da HOPE](./assets/demonstracao.mp4)
 
 </div>
 
 ---
 
-## Sobre o projeto
+# Sobre o projeto
 
-A **HOPE** nasceu com a proposta de transformar uma assistente de inteligência artificial em uma presença mais viva, expressiva e interativa.
+A **HOPE** foi criada para aproximar inteligência artificial de uma experiência mais humana.
 
-Em vez de apenas gerar respostas em texto, ela combina inteligência artificial local, reconhecimento de voz, síntese de fala e controle de expressões para conversar por meio de um avatar no **VTube Studio**.
+Mais do que um chatbot, ela possui voz, memória de conversa, pesquisa na internet, integração com modelos locais e em nuvem, além de controlar um avatar no **VTube Studio**, tornando as interações muito mais naturais.
 
-A assistente é capaz de ouvir o usuário, interpretar a mensagem, formular uma resposta com personalidade própria, falar em voz alta e reagir visualmente durante a conversa.
+Toda a arquitetura foi pensada para funcionar de forma resiliente, utilizando sistemas de fallback quando algum serviço externo fica indisponível.
 
-## OBS: A voz usada na demonstração não é a versão final dela, é uma versão neural da EDGE VOICE = Francisca. Com alguns ajustes, pode ser utilizado MurfAI e ElevenLabs para melhores vozes, esse é um protótipo (:
+---
 
-## Como a HOPE funciona
+# Como a HOPE funciona
 
-O usuário pode interagir com a assistente por texto ou pelo microfone.
+A interação pode acontecer por texto ou voz.
 
-A mensagem é processada junto ao histórico recente da conversa e ao prompt responsável por definir a personalidade da personagem. Em seguida, um modelo de linguagem executado localmente pelo **Ollama** gera a resposta.
+Após receber uma mensagem, a HOPE interpreta o contexto, consulta sua memória recente, realiza pesquisas na internet quando necessário e gera uma resposta utilizando modelos de linguagem locais ou em nuvem.
 
-O texto produzido é transformado em áudio por um sistema de síntese de voz. Ao mesmo tempo, a HOPE identifica o contexto emocional da resposta e ativa expressões configuradas no VTube Studio.
-        
+O texto é convertido em voz, enviado para o VTube Studio e sincronizado automaticamente com o avatar.
+
 ```text
 Usuário fala ou digita
           ↓
-Reconhecimento da mensagem
+Reconhecimento de fala (Speech Recognition)
           ↓
-Memória da conversa + personalidade
+Memória da conversa
           ↓
-Modelo de IA local pelo Ollama
+Pesquisa Web / Clima (quando necessário)
           ↓
-Resposta em texto
+Modelo de IA
+(OpenRouter → fallback Ollama)
           ↓
-Síntese de voz
+Resposta
           ↓
-Áudio, lip sync e expressões no VTube Studio
+Síntese de Voz
+(ElevenLabs → fallback Edge TTS)
+          ↓
+VB-CABLE
+          ↓
+VTube Studio
+(Lip Sync + Expressões)
 ```
-          
-## Principais recursos
 
-* Conversação em português do Brasil.
-* Inteligência artificial executada localmente pelo Ollama.
-* Entrada por texto ou microfone.
-* Palavra de ativação configurável.
-* Memória curta para preservar o contexto da conversa.
-* Respostas reproduzidas por voz.
-* Suporte a diferentes provedores de síntese de fala.
-* Integração com dispositivos de áudio virtuais, como o VB-CABLE.
-* Lip sync do avatar durante as respostas.
-* Controle de expressões por hotkeys do VTube Studio.
-* Personalidade configurável por meio de um prompt próprio.
-* Monitoramento do tempo de resposta de cada etapa do sistema.
+---
 
-## Personalidade
+# Principais recursos
 
-A HOPE possui uma personalidade própria definida por um prompt personalizado.
+### Inteligência Artificial
 
-Esse sistema controla características como:
+- Conversação em português.
+- Suporte a múltiplos provedores de LLM.
+- Pesquisa automática na internet.
+- Consulta de clima em tempo real.
+- Memória curta de conversação.
+- Prompt personalizado para personalidade.
+- Fallback automático entre provedores.
 
-* Tom de voz.
-* Forma de se expressar.
-* Tamanho das respostas.
-* Nível de formalidade.
-* Comportamento durante a conversa.
-* Limites e regras da personagem.
+### Voz
 
-A personalidade pode ser ajustada para tornar a assistente mais doce, divertida, profissional, acolhedora ou objetiva.
+- Respostas por voz.
+- Múltiplos provedores de TTS.
+- Voz natural utilizando ElevenLabs.
+- Ajuste de expressividade da voz.
+- Fallback automático para Edge TTS.
 
-## Voz e interação
+### Reconhecimento de fala
 
-A resposta gerada pela inteligência artificial é convertida em áudio utilizando mecanismos de síntese de fala.
+- Entrada por microfone.
+- Palavra de ativação.
+- Ajuste de sensibilidade.
+- Configuração de dispositivo de áudio.
 
-O projeto possui suporte para diferentes soluções de voz, incluindo:
+### Avatar
 
-* Edge TTS.
-* Microsoft SAPI.
-* Murf AI.
+- Integração completa com VTube Studio.
+- Controle de expressões.
+- Lip Sync automático.
+- Movimentação durante a fala.
 
-O áudio pode ser enviado diretamente para um dispositivo virtual, permitindo que o VTube Studio utilize o som para movimentar a boca do avatar em sincronia com a fala.
+### Monitoramento
 
-## Integração com o VTube Studio
+- Medição do tempo de resposta.
+- Scripts de teste para microfone e TTS.
 
-A comunicação com o VTube Studio acontece por meio de sua API pública via WebSocket.
+---
 
-Durante a conversa, a HOPE pode acionar hotkeys responsáveis por alterar as expressões do avatar, permitindo reações como:
+# Inteligência Artificial
 
-* Feliz.
-* Triste.
-* Pensativa.
-* Surpresa.
-* Neutra.
+A HOPE suporta diferentes provedores de modelos de linguagem.
 
-A expressão é escolhida automaticamente por meio da análise da mensagem do usuário e da resposta gerada pela assistente.
+## Provedores
 
-## Tecnologias utilizadas
+- OpenRouter
+- Groq
+- Ollama
+
+Atualmente o projeto utiliza **OpenRouter** como provedor principal para obter respostas mais rápidas.
+
+Caso o serviço fique indisponível, a HOPE alterna automaticamente para um modelo executado localmente pelo **Ollama**.
+
+---
+
+# Pesquisa Web e Clima
+
+A assistente pode pesquisar informações recentes automaticamente quando necessário.
+
+Também possui integração com a API pública do **Open-Meteo**, permitindo responder perguntas como:
+
+- Temperatura atual
+- Condições climáticas
+- Previsão resumida
+
+Além disso, entende perguntas em sequência.
+
+Exemplo:
+
+```text
+Usuário:
+Clima
+
+HOPE:
+De qual cidade?
+
+Usuário:
+Brasília
+
+HOPE:
+Hoje em Brasília...
+```
+
+---
+
+# Voz (TTS)
+
+A HOPE suporta diversos motores de síntese de voz.
+
+## Provedores
+
+- ElevenLabs
+- Edge TTS
+- Microsoft SAPI
+- Murf AI
+- Voicebox (experimental)
+
+### Configuração atual
+
+**Provedor principal**
+
+- ElevenLabs
+
+**Modelo**
+
+- eleven_flash_v2_5
+
+**Voz**
+
+- Jessica — Playful, Bright, Warm
+
+**Expressividade**
+
+```
+ELEVENLABS_STYLE = 0.35
+```
+
+Caso a ElevenLabs fique indisponível, o sistema utiliza automaticamente o **Edge TTS**.
+
+---
+
+# Reconhecimento de fala (STT)
+
+O reconhecimento de voz foi ajustado para reduzir falsos positivos e melhorar a experiência durante conversas.
+
+### Configuração atual
+
+```
+Microfone:
+USB AUDIO
+
+Timeout:
+10 segundos
+
+Phrase Time Limit:
+5 segundos
+
+Energy Threshold:
+450
+```
+
+Também foram criados scripts específicos para calibração do microfone.
+
+- test_stt_capture.py
+- test_mic_levels.py
+
+---
+
+# Palavra de ativação
+
+A HOPE possui sistema de Wake Word.
+
+Após diversos testes foi observado que "Hope" apresentava baixa taxa de reconhecimento.
+
+Hoje a chamada principal é:
+
+- Assistente
+
+Também reconhece:
+
+- Assiste
+
+Exemplos:
+
+```
+Assistente
+```
+
+↓
+
+```
+Sim, estou aqui!
+```
+
+ou
+
+```
+Assistente, tudo bem?
+```
+
+↓
+
+A HOPE entende apenas "tudo bem?" como comando.
+
+---
+
+# Integração com o VTube Studio
+
+A comunicação acontece através da API pública do VTube Studio utilizando WebSocket.
+
+Durante as respostas, a HOPE pode:
+
+- alterar expressões;
+- acionar hotkeys;
+- movimentar o rosto;
+- sincronizar a boca automaticamente.
+
+Parâmetros utilizados:
+
+- FaceAngleX
+- FaceAngleY
+- FaceAngleZ
+- FacePositionX
+- FacePositionY
+
+O lip sync acontece através do áudio enviado para o **VB-CABLE**, permitindo que o VTube Studio utilize a própria voz da assistente para movimentar a boca.
+
+---
+
+# Tecnologias utilizadas
 
 <p>
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white">
+  <img src="https://img.shields.io/badge/OpenRouter-6C47FF?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Groq-F55036?style=for-the-badge">
   <img src="https://img.shields.io/badge/Ollama-000000?style=for-the-badge&logo=ollama&logoColor=white">
+  <img src="https://img.shields.io/badge/ElevenLabs-000000?style=for-the-badge">
   <img src="https://img.shields.io/badge/VTube_Studio-FF6B9D?style=for-the-badge">
   <img src="https://img.shields.io/badge/WebSocket-010101?style=for-the-badge&logo=socketdotio&logoColor=white">
-  <img src="https://img.shields.io/badge/Speech_Recognition-4285F4?style=for-the-badge&logo=googleassistant&logoColor=white">
 </p>
 
-* Python
-* Ollama
-* VTube Studio Public API
-* WebSocket
-* Speech Recognition
-* Edge TTS
-* Microsoft SAPI
-* Murf AI
-* VB-CABLE
+### Principais tecnologias
 
-## Status do projeto
+- Python
+- OpenRouter
+- Groq
+- Ollama
+- ElevenLabs
+- Edge TTS
+- Microsoft SAPI
+- Murf AI
+- Speech Recognition
+- Open-Meteo
+- WebSocket
+- VTube Studio API
+- VB-CABLE
 
-A HOPE é um projeto pessoal e experimental em desenvolvimento.
+---
 
-O objetivo é continuar explorando formas de tornar a interação entre inteligência artificial, voz e avatares virtuais mais natural, rápida e expressiva.
+# Scripts auxiliares
 
-Entre as possibilidades futuras estão:
+O projeto também possui diversos scripts para testes individuais dos componentes.
 
-* Memória de longo prazo.
-* Reconhecimento emocional mais avançado.
-* Novas expressões e animações.
-* Maior autonomia durante transmissões.
-* Integração com plataformas de streaming.
-* Interação com mensagens do chat.
-* Visão computacional.
-* Sistema de personalidade mais dinâmico.
+| Script | Função |
+|---------|--------|
+| test_stt_capture.py | Testa reconhecimento de voz |
+| test_mic_levels.py | Mede intensidade do microfone |
+| test_voicebox_tts.py | Testes de síntese de voz |
+| web_search.py | Pesquisa web e consulta clima |
+
+---
+
+# Roadmap
+
+- Memória de longo prazo
+- Reconhecimento emocional avançado
+- Expressões mais naturais
+- Sistema de emoções persistentes
+- Visão computacional
+- Integração com plataformas de streaming
+- Leitura de chat em tempo real
+- Sistema de plugins
+- Personalidade dinâmica baseada em contexto
+
+---
+
+# Status
+
+🚧 Projeto em desenvolvimento ativo.
+
+A HOPE continua evoluindo com foco em criar uma assistente virtual cada vez mais natural, rápida e expressiva, explorando integração entre inteligência artificial, síntese de voz e avatares virtuais.
 
 ---
 
