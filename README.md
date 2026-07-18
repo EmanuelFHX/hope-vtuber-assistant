@@ -1,5 +1,5 @@
 <div align="center">
-
+          
 # HOPE
 
 ### Assistente de IA com personalidade de VTuber
@@ -12,7 +12,10 @@ Uma assistente virtual criada em Python para conversar em português, responder 
 
 <br><br>
 
-[▶️ Assistir à demonstração da HOPE](./assets/demonstracao.mp4)
+[▶️ Assistir à demonstração da HOPE]
+
+https://github.com/user-attachments/assets/c2c32f76-7a0b-46ad-8079-555e8ec7fc11
+<div align="center">
 
 </div>
 
@@ -26,6 +29,8 @@ Em vez de apenas gerar respostas em texto, ela combina inteligência artificial 
 
 A assistente é capaz de ouvir o usuário, interpretar a mensagem, formular uma resposta com personalidade própria, falar em voz alta e reagir visualmente durante a conversa.
 
+## OBS: A voz usada na demonstração não é a versão final dela, é uma versão neural da EDGE VOICE = Francisca. Com alguns ajustes, pode ser utilizado MurfAI e ElevenLabs para melhores vozes, esse é um protótipo (:
+
 ## Como a HOPE funciona
 
 O usuário pode interagir com a assistente por texto ou pelo microfone.
@@ -33,7 +38,7 @@ O usuário pode interagir com a assistente por texto ou pelo microfone.
 A mensagem é processada junto ao histórico recente da conversa e ao prompt responsável por definir a personalidade da personagem. Em seguida, um modelo de linguagem executado localmente pelo **Ollama** gera a resposta.
 
 O texto produzido é transformado em áudio por um sistema de síntese de voz. Ao mesmo tempo, a HOPE identifica o contexto emocional da resposta e ativa expressões configuradas no VTube Studio.
-
+        
 ```text
 Usuário fala ou digita
           ↓
@@ -49,7 +54,7 @@ Síntese de voz
           ↓
 Áudio, lip sync e expressões no VTube Studio
 ```
-
+          
 ## Principais recursos
 
 * Conversação em português do Brasil.
@@ -147,6 +152,6 @@ Entre as possibilidades futuras estão:
 
 <div align="center">
 
-Desenvolvido por **Emanuel FHX**
+Desenvolvido por **Emanuel Penna**
 
 </div>
