@@ -12,7 +12,12 @@ Uma assistente virtual desenvolvida em Python capaz de conversar naturalmente em
 
 <br><br>
 
-[▶️ Assistir à demonstração da HOPE](./assets/demonstracao.mp4)
+[▶️ Assistir à demonstração da HOPE]
+
+
+https://github.com/user-attachments/assets/07b05c2f-b707-42f2-8ec9-12e7914d2223
+
+
 
 </div>
 
